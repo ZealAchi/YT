@@ -12,13 +12,16 @@ import Button from "../components/Button"
 import TextInput from "../components/Form/TextInput";
 import { CompositeNavigationProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { HomeRoutes } from "../components/Navigations";
+import { HomeRoutes, AuthenticationRoutes } from "../components/Navigations";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 
 const { width } = Dimensions.get("window")
-export default function Login({ navigation }: 
-CompositeNavigationProp<StackNavigationProp<AuthenticationRoutes,"Login">,
-DrawerNavigationProp<HomeRoutes,"Home">,
-) {
+interface LoginProps{
+    navigation:CompositeNavigationProp<StackNavigationProp<AuthenticationRoutes,"Login">,
+    DrawerNavigationProp<HomeRoutes,"Home">
+    >
+}
+export default function Login({ navigation }: LoginProps) {
 
     const styleImageBackground = { style: { flex: 1, opacity: 1 } }
     const CardStyle = {

@@ -2,10 +2,10 @@ import  React from "react"
 import {createDrawerNavigator} from "@react-navigation/drawer"
 import Home from "./Home";
 import { HomeRoutes } from "../components/Navigations";
-import Drawer from "./Drawer"
+import DrawerContent from "./Drawer"
 const Drawer=createDrawerNavigator<HomeRoutes>();
 export const  HomeNavigator=()=>(
-  <Drawer.Navigator drawerContent={Drawer}>
+  <Drawer.Navigator>
     <Drawer.Screen name="Home" component={Home}/>
   </Drawer.Navigator>
 )

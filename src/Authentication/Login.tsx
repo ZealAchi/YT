@@ -16,9 +16,9 @@ import { HomeRoutes, AuthenticationRoutes } from "../components/Navigations";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 
 const { width } = Dimensions.get("window")
-interface LoginProps{
-    navigation:CompositeNavigationProp<StackNavigationProp<AuthenticationRoutes,"Login">,
-    DrawerNavigationProp<HomeRoutes,"Home">
+interface LoginProps {
+    navigation: CompositeNavigationProp<StackNavigationProp<AuthenticationRoutes, "Login">,
+        DrawerNavigationProp<HomeRoutes, "Home">
     >
 }
 export default function Login({ navigation }: LoginProps) {
@@ -50,15 +50,15 @@ export default function Login({ navigation }: LoginProps) {
                                     <View {...CardStyle}>
                                         <TextInput label="RUT/E-Mail" />
                                         <TextInput label="Contraseña" />
-                                        <Box>
+                                        <Box justifyContent="center" alignItems="center">
                                             <Button variant="transparent" label="¿Olvidastes tu contraseña?" onPress={() => { navigation.navigate("ForgotPassword") }} />
+                                            <Button onPress={() => navigation.navigate("Home")} label="INICIAR SESIÓN" />
+                                            <Button variant="transparent" onPress={() => { navigation.navigate("ForgotPassword") }}>
+                                                <Box flexDirection="row" flex={1} justifyContent="space-around">
+                                                    <Text variant="body" color="secondary">¿No tienes una cuenta?    Registrate aqui</Text>
+                                                </Box>
+                                            </Button>
                                         </Box>
-                                        <Button onPress={()=>navigation.navigate("Home")} label="INICIAR SESIÓN" />
-                                        <Button variant="transparent" onPress={() => { navigation.navigate("ForgotPassword") }}>
-                                            <Box flexDirection="row" flex={1} justifyContent="space-around">
-                                                <Text variant="body" color="secondary">¿No tienes una cuenta?    Registrate aqui</Text>
-                                            </Box>
-                                        </Button>
                                     </View>
                                 </Box>
                                 <Button variant="facebook" label="Continuar con Facebook" />

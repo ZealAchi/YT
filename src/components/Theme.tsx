@@ -15,6 +15,7 @@ const theme={
         // grey:"rgba(12,13,52,0.05)",
         primary: "white",
         secondary:"#c0ee4f",
+        third:"#000000",
         background:"rgba(000,020, 11, 1)",
         surface: "red",
         accent: "blue",
@@ -61,7 +62,7 @@ const theme={
         },
         body:{
             fontSize:12,
-            lineHeight:24,
+            lineHeight:18,
             // fontFamily:"SFProText-Semibold",
             color:"white"
         },

@@ -11,6 +11,8 @@ import { InitialState, NavigationContainer } from "@react-navigation/native";
 import  AsyncStorage from '@react-native-community/async-storage';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { AppStackRoutes } from './src/components/Navigations';
+import {navigationRef} from "./src/components/RootNavigation"
+import DataContext from './src/context/DataContext';
 
 
 const NAVIGATION_STATE_KEY = `NAVIGATION_STATE_KEY-1`;
@@ -49,10 +51,11 @@ function App() {
     return <Text>Cargando...</Text>;
   }
   return (
+    <DataContext>
     <ThemeProvider {...{ theme }}>
       <PaperProvider  {...{ theme }}>
       <SafeAreaProvider>
-        <NavigationContainer {...{ onStateChange, initialState }}>
+        <NavigationContainer {...{ onStateChange, initialState }} ref={navigationRef}>
         <AppStack.Navigator headerMode="none">
           <AppStack.Screen name="Authentication" component={AuthenticationNavigator}/>
           <AppStack.Screen name="Home" component={HomeNavigator}/>
@@ -61,6 +64,7 @@ function App() {
       </SafeAreaProvider>
       </PaperProvider>
     </ThemeProvider>
+    </DataContext>
   )
 }
 export default App;

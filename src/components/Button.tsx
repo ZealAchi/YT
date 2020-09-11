@@ -1,8 +1,14 @@
 import React, { ReactNode } from "react"
-import { StyleSheet } from "react-native"
+import { StyleSheet, StyleSheetProperties } from "react-native"
 import { RectButton } from "react-native-gesture-handler";
 import theme, { Text, Theme } from "./Theme";
 import { useTheme } from "@shopify/restyle";
+import {
+    useResponsiveHeight,
+    useResponsiveWidth,
+    useDimensionsChange
+} from "react-native-responsive-dimensions";
+
 
 const styles = StyleSheet.create({
     container: {
@@ -23,6 +29,7 @@ interface ButtonProps {
     label?: string;
     onPress: () => void;
     children?: ReactNode;
+    style?:StyleSheetProperties;
 }
 
 const getColor = (variant:string) => {
@@ -49,11 +56,12 @@ const getColor = (variant:string) => {
             break;
     }
 }
-const Button = ({ label, onPress, variant, children }: ButtonProps) => {
+const Button = ({ label, onPress, variant, children,style:styleButton }: ButtonProps) => {
     
     const { backgroundColor, color } = getColor(variant)
+    
     return (
-        <RectButton style={[styles.container, { backgroundColor }]} {...{ onPress }}>
+        <RectButton style={[styles.container, { backgroundColor,...styleButton,width: useResponsiveWidth(70) }]}   {...{ onPress }}>
             {children ? (
                 children
             ) : (

@@ -5,13 +5,13 @@ import { Image } from "react-native"
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 
 const items=[
-    {icon:"",label:"Mi perfil",onPress={()=>{}}},
-    {icon:"",label:"Notificaciones",onPress={()=>{}}},
-    {icon:"",label:"Método de pago",onPress={()=>{}}},
-    {icon:"",label:"Panel de admin. general",onPress={()=>{}}},
-    {icon:"",label:"Panel de admin. edificio",onPress={()=>{}}},
-    {icon:"",label:"Preguntas",onPress={()=>{}}},
-    {icon:"",label:"Contacto",onPress={()=>{}}},
+    {icon:"",label:"Mi perfil",onPress:()=>{}},
+    {icon:"",label:"Notificaciones",onPress:()=>{}},
+    {icon:"",label:"Método de pago",onPress:()=>{}},
+    {icon:"",label:"Panel de admin. general",onPress:()=>{}},
+    {icon:"",label:"Panel de admin. edificio",onPress:()=>{}},
+    {icon:"",label:"Preguntas",onPress:()=>{}},
+    {icon:"",label:"Contacto",onPress:()=>{}},
 ]
 
 const Drawer=(props:DrawerContentComponentProps<DrawerContentOptions>)=>{

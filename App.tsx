@@ -8,16 +8,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { AuthenticationNavigator } from './src/Authentication';
 import { HomeNavigator } from './src/Home';
 import { InitialState, NavigationContainer } from "@react-navigation/native";
-import  AsyncStorage from '@react-native-community/async-storage';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import AsyncStorage from '@react-native-community/async-storage';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { AppStackRoutes } from './src/components/Navigations';
-import {navigationRef} from "./src/components/RootNavigation"
+import { navigationRef } from "./src/components/RootNavigation"
 import DataContext from './src/context/DataContext';
 
 
 const NAVIGATION_STATE_KEY = `NAVIGATION_STATE_KEY-1`;
 
-const AppStack=createStackNavigator<AppStackRoutes>();
+const AppStack = createStackNavigator<AppStackRoutes>();
 
 function App() {
   const [isNavigationReady, setIsNavigationReady] = useState(!__DEV__);
@@ -52,18 +52,18 @@ function App() {
   }
   return (
     <DataContext>
-    <ThemeProvider {...{ theme }}>
-      <PaperProvider  {...{ theme }}>
-      <SafeAreaProvider>
-        <NavigationContainer {...{ onStateChange, initialState }} ref={navigationRef}>
-        <AppStack.Navigator headerMode="none">
-          <AppStack.Screen name="Authentication" component={AuthenticationNavigator}/>
-          <AppStack.Screen name="Home" component={HomeNavigator}/>
-        </AppStack.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
-      </PaperProvider>
-    </ThemeProvider>
+      <ThemeProvider {...{ theme }}>
+        <PaperProvider  {...{ theme }}>
+          <SafeAreaProvider>
+            <NavigationContainer {...{ onStateChange, initialState }} ref={navigationRef}>
+              <AppStack.Navigator headerMode="none">
+                <AppStack.Screen name="Authentication" component={AuthenticationNavigator} />
+                <AppStack.Screen name="Home" component={HomeNavigator} />
+              </AppStack.Navigator>
+            </NavigationContainer>
+          </SafeAreaProvider>
+        </PaperProvider>
+      </ThemeProvider>
     </DataContext>
   )
 }

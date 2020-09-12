@@ -6,21 +6,22 @@ import theme from "../Theme";
 interface TextInputProps{
     label?:string;
     value?:string;
-    onChangeText?:()=>void;
-    icon?:ReactNode
-}
-export default function TextInput({label}:TextInputProps){
+    onChangeText?:any;
+    icon?:ReactNode;
+    text?:string;
+    secureTextEntry?:boolean;
 
+}
+export default function TextInput({label,text,onChangeText,secureTextEntry=false}:TextInputProps){
     
 return( <RNPTextInput
     label={label}
+    secureTextEntry={secureTextEntry}
     underlineColor={theme.colors.white}
-    selectionColor={theme.colors.white}
-    
     selectionColor={theme.colors.white}
     style={{backgroundColor:'transparent',borderBottomColor:'white',color:'red'}}
     placeholderTextColor="red"
-    // value={text}
-    // onChangeText={text => setText(text)}
+    value={text}
+    onChangeText={onChangeText}
   />)
 }
